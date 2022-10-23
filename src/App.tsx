@@ -2,6 +2,7 @@ import React, {FormEvent, useState} from 'react';
 import './App.css';
 import {AnotherFormItemMemo} from "./components/another-form-item/another-form-item";
 import {FormField} from "./components/form-item/form-item";
+import {validateFormField} from "./business-logic/validate-form-field";
 
 const fields = Object.entries(
     {
@@ -23,10 +24,14 @@ const App = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (true) { // ⚠️check if <InputField /> is invalid
-            setShouldScrollToElement(true)
+        // ⚠️complex business logic to check if <InputField /> is invalid
+        const isUniqueFieldValid = validateFormField();
+        if (!isUniqueFieldValid) {
+            emitErrorInFormField();
         }
     }
+
+    const emitErrorInFormField = () => setShouldScrollToElement(true)
 
     const resetScroll = () => setShouldScrollToElement(false)
 
