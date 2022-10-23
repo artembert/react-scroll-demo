@@ -22,8 +22,11 @@ const fields = Object.entries(
 export const Form = () => {
     return (
         <form className="form">
-            <FormField errorMessage={"Error message"} />
-            {fields.map(item => (
+            {fields.slice(0, 1).map(item => (
+                <AnotherFormItem key={item.name} {...item}/>
+            ))}
+            <FormField errorMessage={"Error message"}/>
+            {fields.slice(1).map(item => (
                 <AnotherFormItem key={item.name} {...item}/>
             ))}
             <div className="form-footer">
