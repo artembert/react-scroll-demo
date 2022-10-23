@@ -1,1 +1,1 @@
-export const validateFormField = () => true;
+export const validateFormField = () => false;
