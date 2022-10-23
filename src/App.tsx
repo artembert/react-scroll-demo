@@ -32,7 +32,7 @@ const App = () => {
     return (
         <div className="App">
             <main className="form-container">
-                <h3>Scrolling form</h3>
+                <h3>Scroll to field form</h3>
                 <form className="form" onSubmit={handleSubmit}>
                     {fields.slice(0, 1).map(item => (
                         <AnotherFormItemMemo key={item.name} {...item}/>
