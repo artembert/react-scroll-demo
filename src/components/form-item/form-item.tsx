@@ -1,4 +1,4 @@
-import React, {useId, useRef} from "react";
+import React, {useEffect, useId, useRef} from "react";
 import "./form-item.css"
 
 export const FormField = (props: {
@@ -7,10 +7,14 @@ export const FormField = (props: {
     const {shouldScrollToElement, errorMessage, onScrollToElement} = props;
     const ref = useRef<HTMLDivElement>(null);
     const id = useId();
-    if (shouldScrollToElement) {
-        ref?.current?.scrollIntoView({behavior: "smooth"});
-        onScrollToElement?.();
-    }
+
+    useEffect(() => {
+        if (shouldScrollToElement) {
+            ref?.current?.scrollIntoView({behavior: "smooth", block: "nearest"});
+            onScrollToElement?.();
+        }
+    }, [shouldScrollToElement])
+
 
     return (<div ref={ref} className="form-group">
         <label htmlFor={id} className="text-danger">Unique Input</label>
