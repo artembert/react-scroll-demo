@@ -1,7 +1,7 @@
-import {useId} from "react";
+import {memo, useId} from "react";
 import "./another-form-item.css"
 
-export const AnotherFormItem = (props: { name: string, label: string, value: string }) => {
+const AnotherFormItem = (props: { name: string, label: string, value: string }) => {
     const {name, label, value} = props;
     const id = useId();
 
@@ -10,3 +10,5 @@ export const AnotherFormItem = (props: { name: string, label: string, value: str
         <input type="text" id={id} name={name} defaultValue={value} className="input-block"/>
     </div>)
 }
+
+export const AnotherFormItemMemo = memo(AnotherFormItem)

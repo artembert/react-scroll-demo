@@ -8,7 +8,7 @@ export const FormField = (props: {
     const ref = useRef<HTMLDivElement>(null);
     const id = useId();
     if (shouldScrollToElement) {
-        ref?.current?.scrollIntoView();
+        ref?.current?.scrollIntoView({behavior: "smooth"});
         onScrollToElement?.();
     }
 

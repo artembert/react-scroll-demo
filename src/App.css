@@ -3,3 +3,13 @@
   max-width: 360px;
   margin: 0 auto;
 }
+
+.form {
+  display: grid;
+  grid-row-gap: 16px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+}
