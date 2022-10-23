@@ -13,7 +13,7 @@ export const FormField = (props: {
             ref?.current?.scrollIntoView({behavior: "smooth", block: "nearest"});
             onScrollToElement?.();
         }
-    }, [shouldScrollToElement])
+    }, [shouldScrollToElement, onScrollToElement])
 
 
     return (<div ref={ref} className="form-group">
