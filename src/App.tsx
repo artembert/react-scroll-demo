@@ -28,6 +28,8 @@ const App = () => {
         }
     }
 
+    const resetScroll = () => setShouldScrollToElement(false)
+
 
     return (
         <div className="App">
@@ -38,7 +40,7 @@ const App = () => {
                         <AnotherFormItemMemo key={item.name} {...item}/>
                     ))}
                     <FormField errorMessage={"Error message"} shouldScrollToElement={shouldScrollToElement}
-                               onScrollToElement={() => setShouldScrollToElement(false)}/>
+                               onScrollToElement={resetScroll}/>
                     {fields.slice(1).map(item => (
                         <AnotherFormItemMemo key={item.name} {...item}/>
                     ))}
